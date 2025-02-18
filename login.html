@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    /* General page styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Login box styling */
+    .login-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Input fields */
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    .input-field:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    /* Submit button styling */
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Error message styling */
+    .error-message {
+      color: red;
+      font-size: 14px;
+      display: none;
+      text-align: center;
+    }
+
+    /* Success message styling */
+    .success-message {
+      color: green;
+      font-size: 14px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Form -->
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" action="#" method="POST">
+      <div class="error-message" id="error-message">Please fill out all fields.</div>
+      <div class="success-message" id="success-message">Login Successful! Redirecting...</div>
+      <input type="text" id="username" class="input-field" name="username" placeholder="Username" required>
+      <input type="password" id="password" class="input-field" name="password" placeholder="Password" required>
+      <button type="submit" class="submit-btn">Login</button>
+    </form>
+  </div>
+
+  <script>
+    // Function to handle form submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevent default form submission
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('error-message');
+      const successMessage = document.getElementById('success-message');
+
+      // Basic front-end validation
+      if (username === "" || password === "") {
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+      } else {
+        // Hide error message and display success message
+        errorMessage.style.display = 'none';
+        successMessage.style.display = 'block';
+
+        // Simulate redirection after 2 seconds
+        setTimeout(function() {
+          window.location.href = 'dashboard.html';  // Redirect to dashboard page
+        }, 2000);
+      }
+    });
+  </script>
+
+</body>
+</html>
